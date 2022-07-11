@@ -1,0 +1,1 @@
+{"buildTargets":["-wait-db","analyze-code","build","clean","fix-code","help","install","install-vendor","migrations-create","migrations-run","prepare-test-database","reload-database","restart","ssh","start","stop","test","test-functional","test-unit"],"launchTargets":[],"customConfigurationProvider":{"workspaceBrowse":{"browsePath":[],"compilerArgs":[]},"fileIndex":[]}}

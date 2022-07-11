@@ -1,0 +1,8 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    _instanceof:
+        Doctrine\Bundle\FixturesBundle\Fixture:
+            tags: ['doctrine.fixture.orm']

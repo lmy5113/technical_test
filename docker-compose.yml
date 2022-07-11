@@ -1,0 +1,46 @@
+version: "3.4"
+
+services:
+    nginx:
+        build:
+            context: docker/
+            target: web
+        container_name: gsoi.php_techical_test.nginx
+        depends_on: [php]
+        networks: [gsoi-net]
+        ports: ['80:80']
+        volumes: [./public:/var/www/public]
+
+    php:
+        build:
+            context: docker/
+            target: php
+        container_name: gsoi.php_techical_test.php
+        depends_on: [db]
+        networks: [gsoi-net]
+        volumes: [./:/var/www]
+
+    db:
+        build:
+            context: docker/
+            target: db
+        container_name: gsoi.php_techical_test.db
+        environment:
+            MYSQL_ROOT_PASSWORD: 123
+            MYSQL_DATABASE: gsoi
+        networks: [gsoi-net]
+        ports: ['3306:3306']
+        volumes: [mysql-data:/var/lib/mysql]
+
+    adminer:
+        container_name: gsoi.php_techical_test.adminer
+        image: adminer
+        ports: ['8080']
+        depends_on: [db]
+        networks: [gsoi-net]
+
+volumes:
+    mysql-data:
+
+networks:
+    gsoi-net:

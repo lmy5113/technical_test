@@ -1,0 +1,12 @@
+make.exe --dry-run --always-make --keep-going --print-directory
+make: Entering directory 'c:/Users/ib/Desktop/technical_test/php-technical-test-master'
+ 
+process_begin: CreateProcess(NULL, id -u, ...) failed.
+Makefile:10: pipe: Bad file descriptor
+
+process_begin: CreateProcess(NULL, id -g, ...) failed.
+Makefile:11: pipe: Bad file descriptor
+
+fgrep -h "##" Makefile | fgrep -v fgrep | sed -e 's/\\$//' | sed -e 's/##//' | grep -v '###'
+make: Leaving directory 'c:/Users/ib/Desktop/technical_test/php-technical-test-master'
+ 
