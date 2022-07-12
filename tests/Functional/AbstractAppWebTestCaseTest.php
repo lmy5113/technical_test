@@ -17,7 +17,8 @@ abstract class AbstractAppWebTestCaseTest extends WebTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->client = self::createClient([], []);
+        $this->client = self::createClient([], ['HTTP_HOST' => '192.168.99.10']);
+        // $this->client = self::createClient([], []);
         $this->em = self::getContainer()->get('doctrine')->getManager();
         $this->em->getConnection()->setAutoCommit(true);
     }
